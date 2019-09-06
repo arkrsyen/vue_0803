@@ -1,5 +1,61 @@
 @import "./variable";
 
 #app{
-    background: $bobyColor;
+    background: $bobybg;
+
+}
+
+$fishImg:"obj_Apibtn1", "obj_Apibtn2", "obj_Apibtn3", "obj_Apibtn4";
+@each $fishIcon in $fishImg {
+  .#{$fishIcon}{
+    &::after{
+      width: 60px;
+      height: 70px;
+      background: url('/img/#{$fishIcon}.png') no-repeat;
+      background-size: 100%;
+    }
+  }
+} 
+
+.page{
+    background: $bobybg;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    .obj_menuBtn{
+        position: absolute;
+        width: 20vw;
+        height: 80vh;
+        .leftMenu{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            
+        }
+        
+
+    }
+}
+@for $i from 1 through 4 {
+    .obj_Apibtn#{$i}{
+        margin: 8% 0%;
+        width: 100%;
+        height: 13%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        background: url('/img/obj_Apibtn#{$i}.png') no-repeat;
+        background-size: 100%;
+    }
+}
+
+.apiBox{
+    position: absolute;
+    width: 70%;
+    height: 92%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    right: 38px;
+    bottom: 0;
+    color: #fff;
 }
