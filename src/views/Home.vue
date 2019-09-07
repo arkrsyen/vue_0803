@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+    <div class="page">
+        <div class="obj_menuBtn">
+            <ul class="leftMenu">
+                <li class="obj_Apibtn1"></li>
+                <li class="obj_Apibtn2"></li>
+                <li class="obj_Apibtn3"></li>
+                <li class="obj_Apibtn4"></li>
+            </ul>
+        </div>
+        <div>
+          <router-view/>
+          <!-- <div class="apiBox">請輸入資料</div> -->
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
-};
+    name:"Home",
+    data(){
+        return{
+            tableData: []
+        }
+    },
+    
+}
 </script>
+
+<style>
+
+</style>
