@@ -2,6 +2,7 @@
 
 #app{
     background: $bobybg;
+    color: #fff;
 
 }
 
@@ -32,6 +33,12 @@ $fishImg:"obj_Apibtn1", "obj_Apibtn2", "obj_Apibtn3", "obj_Apibtn4";
             height: 100%;
             
         }
+    .obj_leftPage{
+      position: absolute;
+      text-align: left;
+      left: 34vw;
+  
+    }
         
 
     }
