@@ -22,6 +22,21 @@ export default new Router({
       path: '/api',
       name: 'tempApi',
       component: () => import('./views/ApiTemp.vue')
+    },
+    {
+      path: '/friendPool',
+      name: 'friendPool',
+      component: () => import('./views/friendPool.vue')
+    },
+    {
+      path: '/eventPool',
+      name: 'eventPool',
+      component: () => import('./views/eventPool.vue')
+    },
+    {
+      path: '/skill',
+      name: 'skill',
+      component: () => import('./views/skill.vue')
     }
   ]
 })
