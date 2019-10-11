@@ -24,19 +24,24 @@ export default new Router({
       component: () => import('./views/ApiTemp.vue')
     },
     {
-      path: '/friendPool',
+      path: '/friend',
       name: 'friendPool',
       component: () => import('./views/friendPool.vue')
     },
     {
-      path: '/eventPool',
+      path: '/event',
       name: 'eventPool',
       component: () => import('./views/eventPool.vue')
     },
     {
-      path: '/skill',
-      name: 'skill',
-      component: () => import('./views/skill.vue')
+      path: '/poolSkill',
+      name: 'poolSkill',
+      component: () => import('./views/poolSkill.vue')
+    },
+    {
+      path: '/test1010',
+      name: 'test1010',
+      component: () => import('./views/test1010.vue')
     }
   ]
 })

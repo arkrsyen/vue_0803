@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+<div id="app">
   <h1>幕間物語：友情 10 連抽</h1>
   <p>你發現手上的貝德維爾差一張就寶五，剛好你又有 2 萬友情點</p>
 
@@ -40,6 +40,46 @@
 </div>
 </template>
 
+<script>
+var Main = {
+  data(){
+    return {
+      beforePick: true,
+      pickStart: false,
+      account: {
+        friendShip: 20000,
+        playableCount: 0, // 初始值 0
+      },
+      pickPool: [],
+      cardPool: [
+        { class: 'saber', name: '貝德維爾', rare: 3 },
+        { class: 'mystic', name: '龍脈', rare: 3 },
+        { class: 'mystic', name: '奇蹟求道者', rare: 3 },
+        { class: 'saber', name: '睿智的大火', rare: 3 },
+        { class: 'berserker', name: '清姬', rare: 3 },
+        { class: 'berserker', name: '大流士三世', rare: 3 },
+        { class: 'rider', name: '美杜莎', rare: 3 },
+        { class: 'rider', name: '布狄卡', rare: 3 },
+        { class: 'caster', name: '睿智的大火', rare: 3 },
+        { class: 'caster', name: '美狄亞', rare: 3 },
+        { class: 'lancer', name: '庫夫林', rare: 3 },
+        { class: 'archer', name: '阿拉什', rare: 1 },
+        { class: 'caster', name: '安徒生', rare: 2 }
+      ]
+    }
+  },
+  
+  methods: {
+    handlePickupDisplay(val) {
+      this.beforePick = !this.beforePick
+      this.pickStart = !this.pickStart
+    }
+  }
+}
+
+var Scope = Vue.extend(Main)
+new Scope().$mount('#app')
+</script>
 
 <style lang="scss" scoped>
 
