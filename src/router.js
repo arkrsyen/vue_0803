@@ -42,6 +42,16 @@ export default new Router({
       path: '/test1010',
       name: 'test1010',
       component: () => import('./views/test1010.vue')
+    },
+    {
+      path: '/localstroge',
+      name: 'LocalStroge',
+      component: () => import('./views/LocalStroge.vue')
+    },
+    {
+      path: '/addlocal',
+      name: 'AddLocal',
+      component: () => import('./views/addlocal.vue')
     }
   ]
 })

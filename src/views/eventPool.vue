@@ -48,6 +48,55 @@
     <br><br>
     <el-checkbox @change="codes=!codes">使用迦勒底午餐禮裝</el-checkbox>
 
+    <div class="page el-customize">
+    <h1>幕間物語：友情 10 連抽</h1>
+    <p>你發現手上的貝德維爾差一張就寶五，剛好你又有 2 萬友情點</p>
+
+    <b>Context:</b>
+    <ul>
+      <li>抽一次是 200 點，十連抽 2000 點</li>
+      <li>每一張卡可重複隨機出現</li>
+    </ul>
+
+    <b>Force:</b>
+    <ul>
+      <li>抽卡介面仿照實際遊戲內容呈現，可選擇單抽或十連抽</li>
+      <li>依照現有友情點數，需顯示可抽次數 (小數點無條件捨去)</li>
+      <li>若友情點數不足，顯示「友情點數不足」、Button 狀態不可操作</li>
+      <li>若點數不足夠抽取十次，僅顯示一個可抽取多少次的Button</li>
+    </ul>
+    <p>----------作答區----------</p>
+    <br />
+    <div class="game_panel">
+      <ul class="game_info">
+        <li>友情點數: {{ account.friendShip }} 可抽次數: {{ account.playableCount }}</li>
+      </ul>
+      <div v-if="beforePick" class="display">
+        <el-button class="pickup" :disabled="buttonDisable" @click="handlePickupDisplay(button.one.count)">{{ button.one.msg }}</el-button>
+        <el-button v-if="multiPickButton" class="pickup" @click="handlePickupDisplay(button.mult.count)">{{ button.mult.msg }}</el-button>
+      </div>
+      <div v-if="pickStart" class="pickupBlock">
+        <div class="display" data-row-count="5">
+          <div v-for="(item, index) in pickPool" :key="index" class="data_row card_obj">
+            <span class="card">
+              <p>{{ item.name }}</p>
+            </span>
+          </div>
+        </div>
+        <div class="btn_outer">
+          <el-button class="pickup" @click="handlePickupDisplay(0)">繼續召喚</el-button>
+        </div>
+      </div>
+    </div>
+    <div v-if="buttonDisable" class="row horizontal v_center" data-space="space-vertical">
+      <p>突然有</p>
+      <div class="input_inner" data-width="10rem" data-space="space-horizontal">
+        <el-input-number v-model="rentCount" type="text" :min="1" placeholder="人數" />
+      </div>
+      <p>個人借用你的寶五滿破寶石翁賴光</p>
+      <el-button type="primary" @click="chargePoint">確認</el-button>
+    </div>
+  </div>
     
   </div>
 </template>
