@@ -53,6 +53,11 @@ export default new Router({
       path: '/addlocal',
       name: 'AddLocal',
       component: () => import('./views/addlocal.vue')
+    },
+    {
+      path: '/regexp',
+      name: 'Regexp',
+      component: () => import('./views/regexp.vue')
     }
   ]
 })
