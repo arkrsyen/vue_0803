@@ -60,6 +60,16 @@ export default new Router({
       component: () => import('./views/vueI18n.vue')
     },
     {
+      path: '/vuex',
+      name: 'Vuex',
+      component: () => import('./views/VuexTemp.vue')
+    },
+    {
+      path: '/vuex_detail',
+      name: 'VuexDetail',
+      component: () => import('./views/VuexTempDetail.vue')
+    },
+    {
       path: '/regexp',
       name: 'Regexp',
       component: () => import('./views/regexp.vue')

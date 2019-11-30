@@ -1,6 +1,6 @@
 
 <template>
-  <div class="page el-customize">
+  <div class="rightPage el-customize">
     <h1>幕間物語：友情 10 連抽</h1>
     <p>你發現手上的貝德維爾差一張就寶五，剛好你又有 2 萬友情點</p>
 

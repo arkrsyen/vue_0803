@@ -1,5 +1,5 @@
 <template>
-    <div class="page api_temp">
+    <div class="api_temp">
         <div class="obj_menuBtn">
             <ul class="leftMenu">
                 <li class="obj_Apibtn1"></li>

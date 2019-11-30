@@ -20,3 +20,4 @@ export default {
   methods: {
     setLocalStorange() {
       const targetCard = this.card,
+    
