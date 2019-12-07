@@ -3,7 +3,6 @@ const state = {
   flag: '',
   epilogue: ''
 }
-
 const getters = {
   mapGetTotal: state => {
     state.total
@@ -24,16 +23,32 @@ const mutations = {
     console.log('vuex total is: ', state.total)
   },
   changeFlag(state, val) {
-    if (state.total <= 30) {
+    if (state.total <= 24) {
       val = 'a'
-    } else if (state.total > 35 && state.total <= 50) {
+    } else if (state.total > 24 && state.total <= 70) {
       val = 'b'
-    } else if (state.total > 55 && state.total <= 70) {
+    } else if (state.total > 70 && state.total <= 100) {
       val = 'c'
-    } else if (state.total > 65 && state.total <= 80) {
+    } else if (state.total > 100 && state.total <= 140) {
       val = 'd'
     }
     state.flag = val
+  },
+  changeEpilogue(state) {
+    switch (state.flag) {
+      case 'a':
+        state.epilogue = 'normal end'
+        break
+      case 'b':
+        state.epilogue = 'true end'
+        break
+      case 'c':
+        state.epilogue = 'normal end'
+        break
+      case 'd':
+        state.epilogue = 'normal end'
+        break
+    }
   }
 }
 const actions = {

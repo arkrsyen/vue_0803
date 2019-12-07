@@ -1,11 +1,40 @@
 <template>
-  <el-radio-group v-model="flagItem.selectB" @change="onRadioChange">
-    <el-radio-button
-      v-for="(item, index) in flagItem.partB"
-      :key="index"
-      :label="item.label"
-    >{{ item.name }}</el-radio-button>
-  </el-radio-group>
+<div>
+  <p>作戰時間</p>
+  <el-radio-group v-model="flagItem.selectA" @change="onRadioChange">
+        <el-radio-button
+          v-for="(item, index) in flagItem.partA"
+          :key="index"
+          :label="item.label"
+        >{{ item.name }}</el-radio-button>
+      </el-radio-group>
+      <br />
+      <br />
+      <p>要用那個屬性</p>
+      <br />
+      <el-radio-group v-model="flagItem.selectB" @change="onRadioChange">
+        <el-radio-button
+          v-for="(item, index) in flagItem.partB"
+          :key="index"
+          :label="item.label"
+        >{{ item.name }}</el-radio-button>
+      </el-radio-group>
+      <br />
+      <br />
+      <br />
+      <p>哪一種攻擊手段？</p>
+      <br />
+      <el-radio-group v-model="flagItem.selectC" @change="onRadioChange">
+        <el-radio-button
+          v-for="(item, index) in flagItem.partC"
+          :key="index"
+          :label="item.label"
+        >{{ item.name }}</el-radio-button>
+      </el-radio-group>
+    <br />
+    <br />
+    <el-button @click="$router.push({name: 'VuexDetail'})">結果へ</el-button>
+</div>
 </template>
 
 <script>
@@ -42,17 +71,22 @@ export default {
       }
     };
   },
-  methods: {
-    onRadioChange() {
-        ...mapActions(['setFlog']),
-        ...mapMutations([''])
-        this.changeTotal(this.getTotalScore);
-        this.setFlag();
-        this.changeEpilogue();
+  computed: {
+    ...mapGetters(["mapGetTotal"]),
+    getTotalScore() {
+      let result =
+        this.flagItem.selectA + this.flagItem.selectB + this.flagItem.selectC;
+      return result;
     }
   },
-  computed: {
-      ...mapGetters(['mapGetTotal', 'mapGetFlag', 'mapGetEpilogue'])
+  methods: {
+    ...mapActions(["setFlag"]),
+    ...mapMutations(["changeTotal", "changeFlag", "changeEpilogue"]),
+    onRadioChange() {
+      this.changeTotal(this.getTotalScore);
+      this.setFlag();
+      this.changeEpilogue();
+    }
   },
   created() {
     this.mapGetTotal;
