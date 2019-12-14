@@ -70,6 +70,11 @@ export default new Router({
       component: () => import('./views/VuexTempDetail.vue')
     },
     {
+      path: '/component',
+      name: 'Component',
+      component: () => import('./views/Component.vue')
+    },
+    {
       path: '/regexp',
       name: 'Regexp',
       component: () => import('./views/regexp.vue')
