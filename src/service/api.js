@@ -1,41 +1,56 @@
 import axios from 'axios'
-axios.defaults.baseURL = ''
-
 const api = {
-  async get(url, data) {
-    try {
-      let res = await axios.get(url, { params: data })
-      res = res.data
-      return new Promise((resolve) => {
-        resolve(res)
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  // baseURL: 'http://localhost:3000/',
+  get: (url, params) => {
+    return new Promise((resolve, reject) => {
+      axios.get(url, {
+        params: params
       })
-    } catch (err) {
-      console.log(err)
-    }
+        .then((response) => {
+          resolve(response.data)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   },
 
-  async post(url, data) {
-    try {
-      let res = await axios.post(url, data)
-      res = res.data
-      return new Promise((resolve, reject) => {
-        resolve(res)
-      })
-    } catch (err) {
-      console.log(err)
-    }
+  post: (url, params) => {
+    return new Promise((resolve, reject) => {
+      axios.post(url, params)
+        .then((response) => {
+          resolve(response.data)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   },
 
-  async delete(url, data) {
-    try {
-      let res = await axios.delete(url, data)
-      res = res.data
-      return new Promise((resolve) => {
-        resolve(res)
-      })
-    } catch (err) {
-      console.log(err)
-    }
+  put: (url, params) => {
+    return new Promise((resolve, reject) => {
+      axios.put(url, params)
+        .then((response) => {
+          resolve(response.data)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
+  },
+
+  delete: (url, params) => {
+    return new Promise((resolve, reject) => {
+      axios.delete(url)
+        .then((response) => {
+          resolve(response.data)
+        })
+        .catch((error) => {
+          reject(error)
+        })
+    })
   }
+
 }
 export default api
